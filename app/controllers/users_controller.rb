@@ -2,22 +2,22 @@ class UsersController < ApplicationController
   before_filter :authenticate, :only => [:index, :edit, :update]
   before_filter :correct_user, :only => [:edit, :update]
   before_filter :admin_user,   :only => :destroy
-
+  before_filter :logged_in, :only => [:create, :new]
   def new
-	@user = User.new
-	@title = "Sign Up"
+		@user = User.new
+		@title = "Sign Up"
   end
 
   def create
-	@user = User.new(params[:user])
-	if @user.save
-		sign_in @user
-		flash[:success] = "Welcome to Web Cribbage."
-		redirect_to @user
-	else
-		@title = "Sign Up"
-		render 'new'
-	end
+		@user = User.new(params[:user])
+		if @user.save
+			sign_in @user
+			flash[:success] = "Welcome to Web Cribbage."
+			redirect_to @user
+		else
+			@title = "Sign Up"
+			render 'new'
+		end
   end
 
   def edit
@@ -51,6 +51,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+	def logged_in
+		redirect_to(current_user) if signed_in?	
+	end
 	
 	def authenticate
 		deny_access unless signed_in?
