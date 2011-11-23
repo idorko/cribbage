@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
+gem 'will_paginate', '3.0.pre2'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -11,6 +12,7 @@ gem 'json'
 group :development do
   gem 'annotate', '2.4.0'
   gem 'sqlite3'
+  gem 'faker', '0.3.1'
 end
 
 group :production do
