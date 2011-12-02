@@ -4,7 +4,6 @@
 		  <h1>
 			  <%= @user.name %>
 		  </h1>
-		<%= render 'shared/game' if signed_in? %>
 		 <br />
 		<% if @user == current_user %>
 			<h3> Open Games: </h3>
@@ -13,6 +12,8 @@
 				<%= render @games %>
 			</ul>
 			<%= will_paginate @games %>
+		<% else %>
+			<%= render 'shared/game' if signed_in? %>
 		<% end %>
 		</td>
 		
