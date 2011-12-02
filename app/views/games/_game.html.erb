@@ -1,0 +1,7 @@
+<li>
+	<% if User.find(game.player1_id) == @user %>
+		<%= link_to User.find(game.player2_id).name, game  %>
+	<% else %>
+		<%= link_to User.find(game.player1_id).name, game %>
+	<% end %>
+</li>	

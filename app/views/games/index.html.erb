@@ -1,0 +1,47 @@
+<h1>Listing games</h1>
+
+<table>
+  <tr>
+    <th>Player1</th>
+    <th>Player2</th>
+    <th>Game phase</th>
+    <th>Whos turn</th>
+    <th>Player1 hand</th>
+    <th>Player2 hand</th>
+    <th>Crib</th>
+    <th>Player1 score</th>
+    <th>Player2 score</th>
+    <th>Cut</th>
+    <th>Player1 cards played</th>
+    <th>Player2 cards played</th>
+    <th>Whos crib</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @games.each do |game| %>
+  <tr>
+    <td><%= game.player1_id %></td>
+    <td><%= game.player2_id %></td>
+    <td><%= game.game_phase %></td>
+    <td><%= game.whos_turn %></td>
+    <td><%= game.player1_hand %></td>
+    <td><%= game.player2_hand %></td>
+    <td><%= game.crib %></td>
+    <td><%= game.player1_score %></td>
+    <td><%= game.player2_score %></td>
+    <td><%= game.cut %></td>
+    <td><%= game.player1_cards_played %></td>
+    <td><%= game.player2_cards_played %></td>
+    <td><%= game.whos_crib %></td>
+    <td><%= link_to 'Show', game %></td>
+    <td><%= link_to 'Edit', edit_game_path(game) %></td>
+    <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Game', new_game_path %>

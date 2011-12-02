@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Player1:</b>
+  <%= @game.player1_id %>
+</p>
+
+<p>
+  <b>Player2:</b>
+  <%= @game.player2_id %>
+</p>
+
+<p>
+  <b>Game phase:</b>
+  <%= @game.game_phase %>
+</p>
+
+<p>
+  <b>Whos turn:</b>
+  <%= @game.whos_turn %>
+</p>
+
+<p>
+  <b>Player1 hand:</b>
+  <%= @game.player1_hand %>
+</p>
+
+<p>
+  <b>Player2 hand:</b>
+  <%= @game.player2_hand %>
+</p>
+
+<p>
+  <b>Crib:</b>
+  <%= @game.crib %>
+</p>
+
+<p>
+  <b>Player1 score:</b>
+  <%= @game.player1_score %>
+</p>
+
+<p>
+  <b>Player2 score:</b>
+  <%= @game.player2_score %>
+</p>
+
+<p>
+  <b>Cut:</b>
+  <%= @game.cut %>
+</p>
+
+<p>
+  <b>Player1 cards played:</b>
+  <%= @game.player1_cards_played %>
+</p>
+
+<p>
+  <b>Player2 cards played:</b>
+  <%= @game.player2_cards_played %>
+</p>
+
+<p>
+  <b>Whos crib:</b>
+  <%= @game.whos_crib %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

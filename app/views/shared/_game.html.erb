@@ -1,0 +1,5 @@
+<%= form_for current_user.game.build(:player1_id => current_user.id, :player2_id => @user.id) do |f| %>
+	<div><%= f.hidden_field :player1_id %></div>
+	<div><%= f.hidden_field :player2_id %></div>
+	<div class="actions"><%= f.submit "Start Game" %></div>
+<% end %>

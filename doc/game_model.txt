@@ -1,0 +1,14 @@
+Game Model:
+Player 1 ID : integer
+Player 2 ID : integer
+Game Phase : string
+Who's Turn: integer
+Player 1 Hand: string
+Player 2 Hand: string
+Crib: string
+Player 1 Score: integer
+Player 2 Score: integer
+Cut: string
+Player 1 Cards Played: string
+Player 2 Cards Played: string
+Who's Crib: integer

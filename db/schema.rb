@@ -10,7 +10,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111122212553) do
+ActiveRecord::Schema.define(:version => 20111130230401) do
+
+  create_table "games", :force => true do |t|
+    t.integer  "player1_id"
+    t.integer  "player2_id"
+    t.string   "game_phase"
+    t.integer  "whos_turn"
+    t.string   "player1_hand"
+    t.string   "player2_hand"
+    t.string   "crib"
+    t.integer  "player1_score"
+    t.integer  "player2_score"
+    t.string   "cut"
+    t.string   "player1_cards_played"
+    t.string   "player2_cards_played"
+    t.integer  "whos_crib"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "games", ["player1_id", "player2_id"], :name => "index_games_on_player1_id_and_player2_id"
+
+  create_table "games_users", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
