@@ -39,7 +39,7 @@ class GamesController < ApplicationController
 		   	
 			#create deck and cards
 			@deck = @game.create_deck
-			for i in (1..52)
+			for i in (0..52)
 				@card = @deck.card.create(attributes={:rank => ranks[i%13], :suit => suits[i%4]})
 			end
 			
@@ -48,8 +48,6 @@ class GamesController < ApplicationController
 			@game.whos_turn = current_user.id
 			@game.player1_score = 0
 			@game.player2_score = 0
-			@game.hand.create(attributes={:player => 1})
-			@game.hand.create(attributes={:player => 2})
 			@game.save
 			flash[:success] = "Game started!"
 			redirect_to @game
@@ -75,7 +73,19 @@ class GamesController < ApplicationController
     end
   end
 
+  def shuffle(game)
+	game.deck.card.shuffle
+  end
 
+  def deal(game)
+	for i in (0..12)
+		if i%2
+			game.player1_hand.push = game.deck.pop
+		else
+			game.player2_hand.push = game.deck.pop
+		end
+	end
+  end
 
   private
 

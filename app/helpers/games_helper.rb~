@@ -1,0 +1,15 @@
+module GamesHelper
+  def shuffle(game)
+	game.deck.card.shuffle
+  end
+
+  def deal(game)
+	for i in (0..12)
+		if i%2
+			game.player1_hand.push = game.deck.pop
+		else
+			game.player2_hand.push = game.deck.pop
+		end
+	end
+  end
+end
